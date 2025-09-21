@@ -161,13 +161,32 @@ Contáctame:
 		</div>
 	</div>
 </div>
+	<audio id="bg-music" src="musica.mp3" autoplay loop></audio>
 
 <!-- partial -->
   <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/329180/fscreen%401.0.1.js'></script>
   <script src="./script2.js"></script>
   <script  src="./script.js"></script>
   <script src="./script3.js"></script>
+	<script>
+		const audio = document.getElementById("bg-music");
+		const soundBtn = document.querySelector(".sound-btn");
+		const soundIcon = soundBtn.querySelector("use");
 
+		let isPlaying = false;
+
+		soundBtn.addEventListener("click", () => {
+			if (!isPlaying) {
+				audio.play();
+				soundIcon.setAttribute("href", "#icon-sound-on");
+				isPlaying = true;
+			} else {
+				audio.pause();
+				soundIcon.setAttribute("href", "#icon-sound-off");
+				isPlaying = false;
+			}
+		});
+	</script>
 </body>
  
 </html>
